@@ -13,7 +13,6 @@ const CakeList = () => {
 
   return (
     <div className="mb-5">
-      <h2 className="mb-4">Available Cakes</h2>
       <div className="row">
         {cakes.map(cake => (
           <div key={cake.id} className="col-md-4 mb-3">
