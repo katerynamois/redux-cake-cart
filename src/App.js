@@ -1,4 +1,3 @@
-import './App.css';
 import React from 'react';
 import CakeList from './componets/CakeList';
 import Cart from './componets/Cart';

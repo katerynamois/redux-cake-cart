@@ -12,14 +12,23 @@ const CakeList = () => {
   ];
 
   return (
-    <div>
-      <h2>Available Cakes</h2>
-      <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+    <div className="mb-5">
+      <h2 className="mb-4">Available Cakes</h2>
+      <div className="row">
         {cakes.map(cake => (
-          <div key={cake.id} style={{ border: '1px solid #ccc', padding: '10px' }}>
-            <h3>{cake.name}</h3>
-            <p>Price: ${cake.price}</p>
-            <button onClick={() => dispatch(addToCart(cake))}>Add to Cart</button>
+          <div key={cake.id} className="col-md-4 mb-3">
+            <div className="card h-100">
+              <div className="card-body">
+                <h5 className="card-title">{cake.name}</h5>
+                <p className="card-text">Price: <strong>${cake.price}</strong></p>
+                <button 
+                  className="btn btn-primary w-100"
+                  onClick={() => dispatch(addToCart(cake))}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
           </div>
         ))}
       </div>
