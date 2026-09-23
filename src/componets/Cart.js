@@ -7,33 +7,46 @@ const Cart = () => {
   const cart = useSelector(state => state);
 
   return (
-    <div style={{ marginTop: '30px', borderTop: '2px solid #333', paddingTop: '20px' }}>
-      <h2>Shopping Cart</h2>
-      
-      {cart.cakes.length === 0 ? (
-        <p>Cart is empty</p>
-      ) : (
-        <>
-          <ul>
-            {cart.cakes.map(cake => (
-              <li key={cake.id} style={{ marginBottom: '10px' }}>
-                {cake.name} - ${cake.price}
-                <button 
-                  onClick={() => dispatch(removeFromCart(cake.id))}
-                  style={{ marginLeft: '10px' }}
-                >
+    <div className="card">
+      <div className="card-header bg-success text-white">
+        <h2 className="mb-0">🛒 Shopping Cart</h2>
+      </div>
+      <div className="card-body">
+        {cart.cakes.length === 0 ? (
+          <p className="text-muted">Cart is empty</p>
+        ) : (
+          <>
+            <ul className="list-group mb-3">
+              {cart.cakes.map(cake => (
+                <li key={cake.id} className="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong>{cake.name}</strong> - ${cake.price}
+                  </div>
+                  <button 
+                    className="btn btn-danger btn-sm"
+                    onClick={() => dispatch(removeFromCart(cake.id))}
+                  >
+
                   Remove
-                </button>
-              </li>
-            ))}
-          </ul>
-          <p><strong>Total Items: {cart.totalItems}</strong></p>
-          <p><strong>Total Price: ${cart.totalPrice}</strong></p>
-          <button onClick={() => dispatch(clearCart())} style={{ marginTop: '10px' }}>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            
+            <div className="alert alert-info">
+              <p><strong>Total Items:</strong> {cart.totalItems}</p>
+              <p className="mb-0"><strong>Total Price:</strong> ${cart.totalPrice}</p>
+            </div>
+            
+            <button 
+              className="btn btn-warning w-100"
+              onClick={() => dispatch(clearCart())}
+            >
             Clear Cart
-          </button>
-        </>
-      )}
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 };
