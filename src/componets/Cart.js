@@ -20,7 +20,7 @@ const Cart = () => {
               {cart.cakes.map(cake => (
                 <li key={cake.id} className="list-group-item d-flex justify-content-between align-items-center">
                   <div>
-                    <strong>{cake.name}</strong> - ${cake.price}
+                    <strong>{cake.name}</strong> x {cake.quantity} - ${cake.price * cake.quantity}
                   </div>
                   <button 
                     className="btn btn-danger btn-sm"
