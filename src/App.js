@@ -6,9 +6,11 @@ import './app.css';
 function App() {
   return (
     <div className="App">
-      <h1>Redux Cake Cart</h1>
-      <CakeList />
-      <Cart />
+      <div className="container">
+        <h1>Eclaire shop</h1>
+        <CakeList />
+        <Cart />
+      </div>
     </div>
   );
 }
