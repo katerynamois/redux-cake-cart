@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.13.0",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.3",
@@ -20,7 +21,6 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  
   "devDependencies": {
     "@vitejs/plugin-react": "^6.1.1",
     "vite": "^8.3.1"
