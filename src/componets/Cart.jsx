@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, clearCart } from '../redux/actions/cartActions';
+import { removeFromCart, clearCart } from '../redux/cartSlice';
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const cart = useSelector(state => state);
+  const cart = useSelector(state => state.cart);
 
   return (
     <div className="card cart">

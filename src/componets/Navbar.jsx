@@ -4,7 +4,7 @@ import Cart from "./Cart";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const totalItems = useSelector(state =>state.totalItems);
+    const totalItems = useSelector(state => state.cart.totalItems);
 
     return (
         <nav className="navbar-shop">
