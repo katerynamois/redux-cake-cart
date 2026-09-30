@@ -51,7 +51,91 @@ h2 {
   font-weight: 500;
 }
 
+.navbar-shop{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 15px 40px;
+  background: var(--cream);
+}
 
+.logo{
+  font-size: 30px;
+  margin: 15px;
+}
+
+.cart-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 999px;
+  background-color: #fffdf8;
+  color: var(--muted);
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  /* inner ring, outer ring, soft drop shadow */
+  box-shadow:
+    0 0 0 4px var(--cream),
+    0 0 0 5px var(--line),
+    0 8px 18px rgba(46, 38, 34, 0.12);
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-button:hover {
+  color: var(--ink);
+  box-shadow:
+    0 0 0 4px var(--cream),
+    0 0 0 5px var(--rose),
+    0 10px 22px rgba(46, 38, 34, 0.16);
+}
+
+.cart-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cart-count {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--rose);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.cart-wrapper {
+  position: relative;
+}
+
+.cart-dropdown {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: 0;
+  width: 90vw;
+  max-width: 380px;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 16px 40px rgba(46, 38, 34, 0.16);
+}
 
 /* Product cards */
 .card {
@@ -68,7 +152,7 @@ h2 {
 
 .cake-image {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   display: block;
   transition: transform 0.6s ease;
@@ -122,9 +206,8 @@ h2 {
 
 /* Cart */
 .cart {
-  background: var(--paper);
-  max-width: 640px;
-  margin: 0 auto;
+  background: #fffdf8;
+  border: 1px solid var(--line) !important;
 }
 
 .cart:hover {
@@ -233,5 +316,23 @@ h2 {
 
   .cart .card-body {
     padding: 20px;
+  }
+
+  .navbar-shop {
+    padding: 12px 16px;
+  }
+
+  .logo {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .cart-button {
+    padding: 10px 18px;
+    letter-spacing: 2px;
+  }
+
+  .cart-dropdown {
+    width: calc(100vw - 32px);
   }
 }

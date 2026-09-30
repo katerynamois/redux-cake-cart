@@ -7,7 +7,7 @@ const Cart = () => {
   const cart = useSelector(state => state);
 
   return (
-    <div className="card cart mb-5">
+    <div className="card cart">
       <div className="card-header">
         <h2 className="mb-0">Shopping Cart</h2>
       </div>
