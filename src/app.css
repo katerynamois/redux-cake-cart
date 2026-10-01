@@ -205,6 +205,13 @@ h2 {
   text-underline-offset: 4px;
 }
 
+.shop-message {
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  margin: 48px 0;
+}
+
 /* Product cards */
 .card {
   background: var(--card);
