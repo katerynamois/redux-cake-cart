@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Eclaire shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small React shop for éclairs, built for the Zealand React assignment ("Lemonade Stand"). Instead of lemonade, the shop sells éclairs, with data coming from its own API.
 
-## Available Scripts
+**Live demo:** https://redux-cake-cart.vercel.app/
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Home:** shows the current profit. "Sell Éclair" adds $5 and "Buy Ingredients" subtracts $2.
+- **Shop:** fetches éclairs from an external API and shows name, image, description, price and an "Add to Cart" button.
+- **Cart:** shows the selected éclairs with quantity. Use **+** to add another of the same item and **−** to remove one. Also shows the total items and total price.
+- **Checkout:** shows an order summary. "Place Order" clears the cart and goes back to Home. If the cart is empty, Checkout shows a message instead.
+- **Navigation:** a shared menu with a cart count. Pages change without reloading the whole app.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [React](https://react.dev/) + [Vite](https://vite.dev/)
+- [Redux Toolkit](https://redux-toolkit.js.org/): `cartSlice` and `profitSlice`, read with `useSelector` and changed with `useDispatch`
+- [React Router](https://reactrouter.com/): routes for `/`, `/shop`, `/cart` and `/checkout`
+- [Bootstrap](https://getbootstrap.com/) + custom CSS
+- API: my own API on [MockAPI](https://mockapi.io/):
+  `https://6abe4f88c4d5ac54830261cc.mockapi.io/eclairs`
 
-### `npm test`
+## Install and run
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You need [Node.js](https://nodejs.org/) 20.19 or newer.
 
-### `npm run build`
+```bash
+git clone https://github.com/katerynamois/redux-cake-cart.git
+cd redux-cake-cart
+npm install
+npm run dev
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Then open the address shown in the terminal (usually http://localhost:5173).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Other commands:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Command | What it does |
+|---|---|
+| `npm run build` | Builds the app for production into `dist/` |
+| `npm run preview` | Runs the production build locally |
 
-### `npm run eject`
+## Project structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+src/
+├── components/
+│   ├── Layout.jsx      # Navbar + the current page (<Outlet />)
+│   ├── Navbar.jsx      # Menu links and cart button with count
+│   ├── CakeList.jsx    # Fetches éclairs from the API and shows them
+│   └── Cart.jsx        # Cart with + / − and totals (used as the /cart page)
+├── pages/
+│   ├── Home.jsx        # Profit and sell/buy buttons
+│   ├── Shop.jsx
+│   └── Checkout.jsx
+├── redux/
+│   ├── store.js
+│   ├── cartSlice.js
+│   └── profitSlice.js
+├── App.jsx             # Routes
+└── main.jsx            # Redux Provider + BrowserRouter
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The app is deployed on [Vercel](https://vercel.com/). `vercel.json` sends every URL to `index.html`, so pages like `/shop` also work when you reload them.
