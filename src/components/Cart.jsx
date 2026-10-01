@@ -1,6 +1,6 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, clearCart } from '../redux/cartSlice';
+import { Link } from 'react-router-dom';
+import { addToCart, removeFromCart, clearCart } from '../redux/cartSlice';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,10 @@ const Cart = () => {
       </div>
       <div className="card-body">
         {cart.cakes.length === 0 ? (
-          <p className="cart-empty">Your cart is empty</p>
+          <>
+            <p className="cart-empty">Your cart is empty</p>
+            <Link to="/shop" className="btn btn-primary w-100">Go to Shop</Link>
+          </>
         ) : (
           <>
             <ul className="list-group mb-4">
@@ -21,15 +24,25 @@ const Cart = () => {
                 <li key={cake.id} className="list-group-item d-flex justify-content-between align-items-center">
                   <div>
                     <strong>{cake.name}</strong>
-                    <span className="cart-qty"> × {cake.quantity}</span>
-                    <div className="cart-line-price">{cake.price * cake.quantity} kr.</div>
+                    <div className="cart-line-price">{cake.price} kr. each · {cake.price * cake.quantity} kr.</div>
                   </div>
-                  <button
-                    className="btn btn-remove"
-                    onClick={() => dispatch(removeFromCart(cake.id))}
-                  >
-                    Remove
-                  </button>
+                  <div className="qty-controls">
+                    <button
+                      className="qty-btn"
+                      aria-label={`Remove one ${cake.name}`}
+                      onClick={() => dispatch(removeFromCart(cake.id))}
+                    >
+                      −
+                    </button>
+                    <span className="qty-value">{cake.quantity}</span>
+                    <button
+                      className="qty-btn"
+                      aria-label={`Add one more ${cake.name}`}
+                      onClick={() => dispatch(addToCart(cake))}
+                    >
+                      +
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -39,6 +52,9 @@ const Cart = () => {
               <p className="mb-0 cart-total"><span>Total Price</span> <span>{cart.totalPrice} kr.</span></p>
             </div>
 
+            <Link to="/checkout" className="btn btn-primary w-100 mb-3">
+              Go to Checkout
+            </Link>
             <button
               className="btn btn-clear w-100"
               onClick={() => dispatch(clearCart())}

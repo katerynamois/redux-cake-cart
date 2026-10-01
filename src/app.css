@@ -333,20 +333,42 @@ h2 {
   margin-top: 2px;
 }
 
-.btn-remove {
-  background: none;
-  border: none;
-  padding: 0;
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--rose-dark);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.btn-remove:hover {
+.qty-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
   color: var(--ink);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.qty-btn:hover {
+  border-color: var(--rose);
+  background-color: var(--cream);
+}
+
+.qty-value {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.checkout-label {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
 }
 
 .cart-summary {
