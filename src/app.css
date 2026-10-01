@@ -154,6 +154,57 @@ h2 {
   letter-spacing: 0;
 }
 
+/* Profit on Home */
+.profit-card {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 40px 32px;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.profit-label {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.profit-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 32px;
+}
+
+.profit-amount.negative {
+  color: var(--rose-dark);
+}
+
+.profit-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.profit-buttons .btn {
+  flex: 1;
+}
+
+.home-shop-link {
+  text-align: center;
+  margin: 32px 0 64px;
+}
+
+.home-shop-link a {
+  color: var(--ink);
+  letter-spacing: 1px;
+  text-underline-offset: 4px;
+}
+
 /* Product cards */
 .card {
   background: var(--card);
