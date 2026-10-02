@@ -1,14 +1,14 @@
 # Eclaire shop
 
-A small React shop for éclairs, built for the Zealand React assignment ("Lemonade Stand"). Instead of lemonade, the shop sells éclairs, with data coming from its own API.
+A small React shop for eclairs.
 
 **Live demo:** https://redux-cake-cart.vercel.app/
 
 ## Features
 
-- **Home:** shows the current profit. "Sell Éclair" adds $5 and "Buy Ingredients" subtracts $2.
-- **Shop:** fetches éclairs from an external API and shows name, image, description, price and an "Add to Cart" button.
-- **Cart:** shows the selected éclairs with quantity. Use **+** to add another of the same item and **−** to remove one. Also shows the total items and total price.
+- **Home:** shows the current profit. "Sell Eclair" adds $5 and "Buy Ingredients" subtracts $2.
+- **Shop:** fetches eclairs from an external API and shows name, image, description, price and an "Add to Cart" button.
+- **Cart:** shows the selected eclairs with quantity. Use **+** to add another of the same item and **−** to remove one. Also shows the total items and total price.
 - **Checkout:** shows an order summary. "Place Order" clears the cart and goes back to Home. If the cart is empty, Checkout shows a message instead.
 - **Navigation:** a shared menu with a cart count. Pages change without reloading the whole app.
 
